@@ -3,105 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - FullStack developer</title>
-    <meta name="description" content="Краткое описание главной страницы вашего сайта">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <title>Главная - CSS-архитектура БЭМ</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+    <script src="scripts.js"></script>
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <header>
-        <a href="/">FullStack developer</a>
-        <!-- Главное меню навигации -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
-            </ul>
-        </nav>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container site-header__container">
+            <a href="#" class="site-header__brand">Логотип</a>
+            
+            <nav class="site-nav" aria-label="Основная навигация">
+                <ul class="site-nav__list">
+                    <li class="site-nav__item">
+                        <a href="#home" class="site-nav__link site-nav__link--active">Главная</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a href="#about" class="site-nav__link">О нас</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a href="#projects" class="site-nav__link">Проекты</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a href="#contacts" class="site-nav__link site-nav__link--cta" id="openDialog">Связаться</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="site-header__actions">
+                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Переключить тему">
+                    <span aria-hidden="true">🌙</span>
+                    <span class="sr-only">Тема</span>
+                </button>
+            </div>
+        </div>
     </header>
-    <!-- Уникальное основное содержимое страницы -->
+
+    <!-- BREADCRUMBS -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <div class="container">
+            <ol class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                    <a href="#" class="breadcrumbs__link">Главная</a>
+                </li>
+                <li class="breadcrumbs__item">
+                    <span class="breadcrumbs__current">Текущая страница</span>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
     <main>
-        <h1>Добро пожаловать на наш сайт!</h1>
-        <!-- Секция 1 с якорем -->
-        <section id="services">
-            <h2>Наши услуги</h2>
-            <p>Создание игр</p>
-            <a href="#contacts">Связаться с нами</a> <!-- Якорная ссылка внутри страницы -->
+        <!-- HERO SECTION -->
+        <section class="section" id="home">
+            <div class="container">
+                <div class="hero">
+                    <h1 class="hero__title">CSS-архитектура БЭМ</h1>
+                    <p class="hero__subtitle">Современный подход к стилизации с дизайн-токенами</p>
+                    <a href="#projects" class="hero__cta">
+                        <span>Смотреть проекты</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </div>
         </section>
-        <!-- Секция 2 с якорем -->
-        <section id="portfolio">
-            <h2>Портфолио</h2>
-            <p>Snake</p>
+
+        <!-- ABOUT SECTION -->
+        <section class="section" id="about">
+            <div class="container">
+                <h2 class="section__title text-center">О проекте</h2>
+                <p class="text-center mb-4">Демонстрация БЭМ-методологии с использованием дизайн-токенов, состояний и адаптивных медиа.</p>
+                
+                <!-- Responsive изображение -->
+                <picture>
+                    <source
+                        media="(min-width: 768px)"
+                        srcset="data:image/svg+xml,%3Csvg width='800' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23e3f2fd'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='24' fill='%230a84ff'%3EРеспонсивное изображение (Desktop)%3C/text%3E%3C/svg%3E">
+                    <img 
+                        src="https://sun9-43.userapi.com/impf/I12DXfMIDRBWMhQx2tmk_s99f22DthV8t6UnOg/fJZ7GOLFJgc.jpg?size=1920x768&quality=95&crop=183,0,1350,539&sign=a6db616cbca2fb33a13a7a40cd75b38b&type=cover_group"
+                        alt="Демонстрация респонсивного изображения"
+                        loading="lazy"
+                        decoding="async"
+                        style="margin: 0 auto; border-radius: var(--radius);">
+                </picture>
+            </div>
         </section>
-        <!-- Секция 3 с якорем -->
-        <section id="contacts">
-            <h2>Контактная информация</h2>
-            <p>Наши контакты...</p>
-            <a href="contacts.html">Подробнее</a> <!-- Ссылка на отдельную страницу -->
+
+        <!-- PROJECTS SECTION -->
+        <section class="section" id="projects">
+            <div class="container">
+                <h2 class="section__title text-center">Проекты</h2>
+                <div class="cards">
+                    <article class="card">
+                        <img 
+                            src="https://javarush.com/images/article/ab99a891-5430-44e0-850b-21ec6402fc63/original.png"
+                            alt="Проект 1: Веб-приложение"
+                            class="card__img"
+                            loading="lazy">
+                        <div class="card__content">
+                            <h3 class="card__title">Веб-приложение</h3>
+                            <p class="card__text">Современное SPA с использованием БЭМ-методологии и CSS Grid.</p>
+                            <a href="#project-1" class="card__link">Подробнее →</a>
+                        </div>
+                    </article>
+                    
+                    <article class="card">
+                        <img 
+                            src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/e65223143654569.627e3fd2d9015.jpg"
+                            alt="Проект 2: Мобильное приложение"
+                            class="card__img"
+                            loading="lazy">
+                        <div class="card__content">
+                            <h3 class="card__title">Мобильное приложение</h3>
+                            <p class="card__text">Адаптивный дизайн с фокусом на пользовательский опыт.</p>
+                            <a href="#project-2" class="card__link">Подробнее →</a>
+                        </div>
+                    </article>
+                    
+                    <article class="card">
+                        <img 
+                            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/920b1b140873105.62a257919fa40.png"
+                            alt="Проект 3: Система дизайна"
+                            class="card__img"
+                            loading="lazy">
+                        <div class="card__content">
+                            <h3 class="card__title">Система дизайна</h3>
+                            <p class="card__text">Комплексная система компонентов с дизайн-токенами.</p>
+                            <a href="#project-3" class="card__link">Подробнее →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
-        <section>
-            <!-- Кнопка открытия модалки -->
-            <button id="openDialog" type="button">Написать нам</button>
-            <!-- Модалка с формой -->
-            <dialog id="contactDialog" aria-labelledby="dialogTitle">
-                <h2 id="dialogTitle">Обратная связь</h2>
-                <form id="contactForm" method="dialog" novalidate>
-                    <label for="name">Имя</label>
-                    <input id="name" name="name" type="text" required minlength="2"
-                    autocomplete="given-name">
-                    <label for="email">E-mail</label>
-                    <input id="email" name="email" type="email" required
-                    autocomplete="email">
-                    <label for="phone">Телефон</label>
-                    <input id="phone" name="phone" type="tel" inputmode="tel"
-                    autocomplete="tel"
-                    aria-describedby="phoneHelp" placeholder="+7 (___) ___-__-__"
-                    required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
-                    <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
-                    <label for="date">Дата</label>
-                    <input id="date" name="date" type="date">
-                    <label for="topic">Тема</label>
-                    <select id="topic" name="topic" required>
-                        <option value="">Выберите тему</option>
-                        <option>Вопрос</option>
-                        <option>Заказ</option>
-                    </select>
-                    <label for="message">Сообщение</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                    <div class="form-actions">
-                        <button type="button" id="closeDialog">Закрыть</button>
-                        <button type="submit">Отправить</button>
-                    </div>
-                </form>
-            </dialog>
+
+        <!-- VIDEO SECTION -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section__title text-center">Демо-видео</h2>
+                <div class="media">
+                    <video 
+                        controls 
+                        preload="metadata" 
+                        playsinline
+                        poster="data:image/svg+xml,%3Csvg width='960' height='540' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23000'/%3E%3Cpolygon points='360,200 600,270 360,340' fill='%23fff'/%3E%3Ctext x='480' y='400' text-anchor='middle' fill='%23fff' font-family='Arial, sans-serif' font-size='16'%3EДемо-видео проекта%3C/text%3E%3C/svg%3E">
+                        <source src="video.mp4" type="video/mp4">
+                        <source src="#" type="video/webm">
+                        <track kind="captions" srclang="ru" src="#" label="Русские субтитры" default>
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
+                
+                <p class="text-center mb-3">Или посмотрите видео на внешнем сервисе:</p>
+                <div class="media">
+                    <!-- Пример встраивания с заглушкой -->
+                    <iframe width="720" height="405" src="https://rutube.ru/play/embed/17465fc541700b94ebd5648423675100/?skinColor=0e8dee" style="border: none;" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                </div>
+            </div>
         </section>
     </main>
-    <!-- Подвал сайта -->
-    <footer>
-        <p>&copy; 2025 FullStack developer. Все права защищены.</p>
-        <p>Телефон: +7 (123) 456-78-90</p>
-    </footer>
+
+    <!-- MODAL DIALOG -->
+    <dialog id="contactDialog" class="modal" aria-labelledby="dialogTitle">
+        <h2 id="dialogTitle" class="modal__title">Обратная связь</h2>
+        <form id="contactForm" method="dialog" novalidate class="form">
+            <div class="form__field">
+                <label for="name" class="form__label">Имя *</label>
+                <input 
+                    id="name" 
+                    name="name" 
+                    type="text" 
+                    required 
+                    minlength="2" 
+                    autocomplete="given-name"
+                    class="form__input">
+            </div>
+
+            <div class="form__field">
+                <label for="email" class="form__label">E-mail *</label>
+                <input 
+                    id="email" 
+                    name="email" 
+                    type="email" 
+                    required 
+                    autocomplete="email"
+                    class="form__input">
+            </div>
+
+            <div class="form__field">
+                <label for="phone" class="form__label">Телефон *</label>
+                <input 
+                    id="phone" 
+                    name="phone" 
+                    type="tel" 
+                    inputmode="tel" 
+                    autocomplete="tel" 
+                    aria-describedby="phoneHelp" 
+                    placeholder="+7 (___) ___-__-__" 
+                    required 
+                    pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                    class="form__input">
+                <small id="phoneHelp" class="form__help">Формат: +7 (900) 000-00-00</small>
+            </div>
+
+            <div class="form__field">
+                <label for="date" class="form__label">Дата</label>
+                <input 
+                    id="date" 
+                    name="date" 
+                    type="date"
+                    class="form__input">
+            </div>
+
+            <div class="form__field">
+                <label for="topic" class="form__label">Тема *</label>
+                <select id="topic" name="topic" required class="form__select">
+                    <option value="">Выберите тему</option>
+                    <option value="question">Вопрос</option>
+                    <option value="order">Заказ</option>
+                </select>
+            </div>
+
+            <div class="form__field">
+                <label for="message" class="form__label">Сообщение *</label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="4" 
+                    required
+                    class="form__textarea"></textarea>
+            </div>
+
+            <div class="form__actions">
+                <button type="button" id="closeDialog" class="form__button form__button--secondary">Закрыть</button>
+                <button type="submit" class="form__button form__button--primary">Отправить</button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>
-<script>
-    const dlg = document.getElementById('contactDialog');
-    const openBtn = document.getElementById('openDialog');
-    const closeBtn = document.getElementById('closeDialog');
-    const form = document.getElementById('contactForm');
-    let lastActive = null;
-    openBtn.addEventListener('click', () => {
-        lastActive = document.activeElement;
-        dlg.showModal(); // модальный режим + затемнение
-        dlg.querySelector('input,select,textarea,button')?.focus();
-    });
-    closeBtn.addEventListener('click', () => dlg.close('cancel'));
-    form?.addEventListener('submit', (e) => {
-    // валидация см. 1.4.2; при успехе закрываем окно
-    });
-    dlg.addEventListener('close', () => { lastActive?.focus(); });
-    // Esc по умолчанию вызывает событие 'cancel' и закрывает <dialog>
-
-</script>
