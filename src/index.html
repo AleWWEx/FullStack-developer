@@ -6,6 +6,8 @@
     <title>Главная - FullStack developer</title>
     <meta name="description" content="Краткое описание главной страницы вашего сайта">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <!-- Шапка сайта -->
@@ -40,6 +42,42 @@
             <p>Наши контакты...</p>
             <a href="contacts.html">Подробнее</a> <!-- Ссылка на отдельную страницу -->
         </section>
+        <section>
+            <!-- Кнопка открытия модалки -->
+            <button id="openDialog" type="button">Написать нам</button>
+            <!-- Модалка с формой -->
+            <dialog id="contactDialog" aria-labelledby="dialogTitle">
+                <h2 id="dialogTitle">Обратная связь</h2>
+                <form id="contactForm" method="dialog" novalidate>
+                    <label for="name">Имя</label>
+                    <input id="name" name="name" type="text" required minlength="2"
+                    autocomplete="given-name">
+                    <label for="email">E-mail</label>
+                    <input id="email" name="email" type="email" required
+                    autocomplete="email">
+                    <label for="phone">Телефон</label>
+                    <input id="phone" name="phone" type="tel" inputmode="tel"
+                    autocomplete="tel"
+                    aria-describedby="phoneHelp" placeholder="+7 (___) ___-__-__"
+                    required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+                    <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+                    <label for="date">Дата</label>
+                    <input id="date" name="date" type="date">
+                    <label for="topic">Тема</label>
+                    <select id="topic" name="topic" required>
+                        <option value="">Выберите тему</option>
+                        <option>Вопрос</option>
+                        <option>Заказ</option>
+                    </select>
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <div class="form-actions">
+                        <button type="button" id="closeDialog">Закрыть</button>
+                        <button type="submit">Отправить</button>
+                    </div>
+                </form>
+            </dialog>
+        </section>
     </main>
     <!-- Подвал сайта -->
     <footer>
@@ -48,3 +86,22 @@
     </footer>
 </body>
 </html>
+<script>
+    const dlg = document.getElementById('contactDialog');
+    const openBtn = document.getElementById('openDialog');
+    const closeBtn = document.getElementById('closeDialog');
+    const form = document.getElementById('contactForm');
+    let lastActive = null;
+    openBtn.addEventListener('click', () => {
+        lastActive = document.activeElement;
+        dlg.showModal(); // модальный режим + затемнение
+        dlg.querySelector('input,select,textarea,button')?.focus();
+    });
+    closeBtn.addEventListener('click', () => dlg.close('cancel'));
+    form?.addEventListener('submit', (e) => {
+    // валидация см. 1.4.2; при успехе закрываем окно
+    });
+    dlg.addEventListener('close', () => { lastActive?.focus(); });
+    // Esc по умолчанию вызывает событие 'cancel' и закрывает <dialog>
+
+</script>
