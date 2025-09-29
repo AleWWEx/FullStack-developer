@@ -1,8 +1,6 @@
-/* ========== ДИЗАЙН-ТОКЕНЫ ========== */
 :root {
     color-scheme: light;
     
-    /* Палитра */
     --color-bg: #ffffff;
     --color-fg: #0b0b0b;
     --color-muted: #666666;
