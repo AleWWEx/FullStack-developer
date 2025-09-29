@@ -25,7 +25,7 @@
                         <a href="#projects" class="site-nav__link">Проекты</a>
                     </li>
                     <li class="site-nav__item">
-                        <a href="contacts.html" class="site-nav__link site-nav__link--cta">Связаться</a>
+                        <a href="#contacts" class="site-nav__link site-nav__link--cta" id="openDialog">Связаться</a>
                     </li>
                 </ul>
             </nav>
@@ -91,7 +91,7 @@
                 <div class="cards">
                     <article class="card">
                         <img 
-                            src="https://javarush.com/images/article/ab99a891-5430-44e0-850b-21ec6402fc63/original.png"
+                            src="https://javarush.com/images/article/ab99a891-5430-44e0-850b-21ec6402fc63/original.png  "
                             alt="Проект 1: Веб-приложение"
                             class="card__img"
                             loading="lazy">
@@ -104,7 +104,7 @@
                     
                     <article class="card">
                         <img 
-                            src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/e65223143654569.627e3fd2d9015.jpg"
+                            src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/e65223143654569.627e3fd2d9015.jpg  "
                             alt="Проект 2: Мобильное приложение"
                             class="card__img"
                             loading="lazy">
@@ -117,7 +117,7 @@
                     
                     <article class="card">
                         <img 
-                            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/920b1b140873105.62a257919fa40.png"
+                            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/920b1b140873105.62a257919fa40.png  "
                             alt="Проект 3: Система дизайна"
                             class="card__img"
                             loading="lazy">
@@ -154,5 +154,82 @@
             </div>
         </section>
     </main>
+
+    <dialog id="contactDialog" class="modal" aria-labelledby="dialogTitle">
+        <h2 id="dialogTitle" class="modal__title">Обратная связь</h2>
+        <form id="contactForm" method="dialog" novalidate class="form">
+            <div class="form__field">
+                <label for="name" class="form__label">Имя *</label>
+                <input 
+                    id="name" 
+                    name="name" 
+                    type="text" 
+                    required 
+                    minlength="2" 
+                    autocomplete="given-name"
+                    class="form__input">
+            </div>
+
+            <div class="form__field">
+                <label for="email" class="form__label">E-mail *</label>
+                <input 
+                    id="email" 
+                    name="email" 
+                    type="email" 
+                    required 
+                    autocomplete="email"
+                    class="form__input">
+            </div>
+
+            <div class="form__field">
+                <label for="phone" class="form__label">Телефон *</label>
+                <input 
+                    id="phone" 
+                    name="phone" 
+                    type="tel" 
+                    inputmode="tel" 
+                    autocomplete="tel" 
+                    aria-describedby="phoneHelp" 
+                    placeholder="+7 (___) ___-__-__" 
+                    required 
+                    pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                    class="form__input">
+                <small id="phoneHelp" class="form__help">Формат: +7 (900) 000-00-00</small>
+            </div>
+
+            <div class="form__field">
+                <label for="date" class="form__label">Дата</label>
+                <input 
+                    id="date" 
+                    name="date" 
+                    type="date"
+                    class="form__input">
+            </div>
+
+            <div class="form__field">
+                <label for="topic" class="form__label">Тема *</label>
+                <select id="topic" name="topic" required class="form__select">
+                    <option value="">Выберите тему</option>
+                    <option value="question">Вопрос</option>
+                    <option value="order">Заказ</option>
+                </select>
+            </div>
+
+            <div class="form__field">
+                <label for="message" class="form__label">Сообщение *</label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="4" 
+                    required
+                    class="form__textarea"></textarea>
+            </div>
+
+            <div class="form__actions">
+                <button type="button" id="closeDialog" class="form__button form__button--secondary">Закрыть</button>
+                <button type="submit" class="form__button form__button--primary">Отправить</button>
+            </div>
+        </form>
+    </dialog>
 </body>
-</html>
+</html> 
