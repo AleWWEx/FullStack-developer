@@ -145,9 +145,6 @@ button, input, select, textarea {
     list-style: none;
 }
 
-.site-nav__item {
-}
-
 .site-nav__link {
     color: var(--color-fg);
     text-decoration: none;
