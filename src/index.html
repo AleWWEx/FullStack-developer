@@ -9,7 +9,6 @@
     <script src="scripts.js"></script>
 </head>
 <body>
-    <!-- HEADER -->
     <header class="site-header">
         <div class="container site-header__container">
             <a href="#" class="site-header__brand">Логотип</a>
@@ -26,7 +25,7 @@
                         <a href="#projects" class="site-nav__link">Проекты</a>
                     </li>
                     <li class="site-nav__item">
-                        <a href="#contacts" class="site-nav__link site-nav__link--cta" id="openDialog">Связаться</a>
+                        <a href="contacts.html" class="site-nav__link site-nav__link--cta">Связаться</a>
                     </li>
                 </ul>
             </nav>
@@ -40,7 +39,6 @@
         </div>
     </header>
 
-    <!-- BREADCRUMBS -->
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
         <div class="container">
             <ol class="breadcrumbs__list">
@@ -55,7 +53,6 @@
     </nav>
 
     <main>
-        <!-- HERO SECTION -->
         <section class="section" id="home">
             <div class="container">
                 <div class="hero">
@@ -69,13 +66,11 @@
             </div>
         </section>
 
-        <!-- ABOUT SECTION -->
         <section class="section" id="about">
             <div class="container">
                 <h2 class="section__title text-center">О проекте</h2>
                 <p class="text-center mb-4">Демонстрация БЭМ-методологии с использованием дизайн-токенов, состояний и адаптивных медиа.</p>
                 
-                <!-- Responsive изображение -->
                 <picture>
                     <source
                         media="(min-width: 768px)"
@@ -90,7 +85,6 @@
             </div>
         </section>
 
-        <!-- PROJECTS SECTION -->
         <section class="section" id="projects">
             <div class="container">
                 <h2 class="section__title text-center">Проекты</h2>
@@ -137,7 +131,6 @@
             </div>
         </section>
 
-        <!-- VIDEO SECTION -->
         <section class="section">
             <div class="container">
                 <h2 class="section__title text-center">Демо-видео</h2>
@@ -156,89 +149,10 @@
                 
                 <p class="text-center mb-3">Или посмотрите видео на внешнем сервисе:</p>
                 <div class="media">
-                    <!-- Пример встраивания с заглушкой -->
                     <iframe width="720" height="405" src="https://rutube.ru/play/embed/17465fc541700b94ebd5648423675100/?skinColor=0e8dee" style="border: none;" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                 </div>
             </div>
         </section>
     </main>
-
-    <!-- MODAL DIALOG -->
-    <dialog id="contactDialog" class="modal" aria-labelledby="dialogTitle">
-        <h2 id="dialogTitle" class="modal__title">Обратная связь</h2>
-        <form id="contactForm" method="dialog" novalidate class="form">
-            <div class="form__field">
-                <label for="name" class="form__label">Имя *</label>
-                <input 
-                    id="name" 
-                    name="name" 
-                    type="text" 
-                    required 
-                    minlength="2" 
-                    autocomplete="given-name"
-                    class="form__input">
-            </div>
-
-            <div class="form__field">
-                <label for="email" class="form__label">E-mail *</label>
-                <input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    required 
-                    autocomplete="email"
-                    class="form__input">
-            </div>
-
-            <div class="form__field">
-                <label for="phone" class="form__label">Телефон *</label>
-                <input 
-                    id="phone" 
-                    name="phone" 
-                    type="tel" 
-                    inputmode="tel" 
-                    autocomplete="tel" 
-                    aria-describedby="phoneHelp" 
-                    placeholder="+7 (___) ___-__-__" 
-                    required 
-                    pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
-                    class="form__input">
-                <small id="phoneHelp" class="form__help">Формат: +7 (900) 000-00-00</small>
-            </div>
-
-            <div class="form__field">
-                <label for="date" class="form__label">Дата</label>
-                <input 
-                    id="date" 
-                    name="date" 
-                    type="date"
-                    class="form__input">
-            </div>
-
-            <div class="form__field">
-                <label for="topic" class="form__label">Тема *</label>
-                <select id="topic" name="topic" required class="form__select">
-                    <option value="">Выберите тему</option>
-                    <option value="question">Вопрос</option>
-                    <option value="order">Заказ</option>
-                </select>
-            </div>
-
-            <div class="form__field">
-                <label for="message" class="form__label">Сообщение *</label>
-                <textarea 
-                    id="message" 
-                    name="message" 
-                    rows="4" 
-                    required
-                    class="form__textarea"></textarea>
-            </div>
-
-            <div class="form__actions">
-                <button type="button" id="closeDialog" class="form__button form__button--secondary">Закрыть</button>
-                <button type="submit" class="form__button form__button--primary">Отправить</button>
-            </div>
-        </form>
-    </dialog>
 </body>
 </html>
