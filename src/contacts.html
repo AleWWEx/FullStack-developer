@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Связаться - Alex</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container site-header__container">
+            <a href="index.html" class="site-header__brand">Логотип</a>
+            
+            <nav class="site-nav" aria-label="Основная навигация">
+                <ul class="site-nav__list">
+                    <li class="site-nav__item">
+                        <a href="index.html#home" class="site-nav__link">Главная</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a href="index.html#about" class="site-nav__link">О нас</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a href="index.html#projects" class="site-nav__link">Проекты</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a href="#" class="site-nav__link site-nav__link--active">Связаться</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="site-header__actions">
+                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Переключить тему">
+                    <span aria-hidden="true">🌙</span>
+                    <span class="sr-only">Тема</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <div class="container">
+            <ol class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                    <a href="index.html" class="breadcrumbs__link">Главная</a>
+                </li>
+                <li class="breadcrumbs__item">
+                    <span class="breadcrumbs__current">Связаться</span>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="section__title text-center">Обратная связь</h1>
+                <form id="contactForm" novalidate class="form">
+                    <div class="form__field">
+                        <label for="name" class="form__label">Имя *</label>
+                        <input 
+                            id="name" 
+                            name="name" 
+                            type="text" 
+                            required 
+                            minlength="2" 
+                            autocomplete="given-name"
+                            class="form__input">
+                    </div>
+
+                    <div class="form__field">
+                        <label for="email" class="form__label">E-mail *</label>
+                        <input 
+                            id="email" 
+                            name="email" 
+                            type="email" 
+                            required 
+                            autocomplete="email"
+                            class="form__input">
+                    </div>
+
+                    <div class="form__field">
+                        <label for="phone" class="form__label">Телефон *</label>
+                        <input 
+                            id="phone" 
+                            name="phone" 
+                            type="tel" 
+                            inputmode="tel" 
+                            autocomplete="tel" 
+                            aria-describedby="phoneHelp" 
+                            placeholder="+7 (___) ___-__-__" 
+                            required 
+                            pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                            class="form__input">
+                        <small id="phoneHelp" class="form__help">Формат: +7 (900) 000-00-00</small>
+                    </div>
+
+                    <div class="form__field">
+                        <label for="date" class="form__label">Дата</label>
+                        <input 
+                            id="date" 
+                            name="date" 
+                            type="date"
+                            class="form__input">
+                    </div>
+
+                    <div class="form__field">
+                        <label for="topic" class="form__label">Тема *</label>
+                        <select id="topic" name="topic" required class="form__select">
+                            <option value="">Выберите тему</option>
+                            <option value="question">Вопрос</option>
+                            <option value="order">Заказ</option>
+                        </select>
+                    </div>
+
+                    <div class="form__field">
+                        <label for="message" class="form__label">Сообщение *</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="4" 
+                            required
+                            class="form__textarea"></textarea>
+                    </div>
+
+                    <div class="form__actions">
+                        <a href="index.html" class="form__button form__button--secondary">Назад</a>
+                        <button type="submit" class="form__button form__button--primary">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
